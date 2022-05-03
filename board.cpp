@@ -31,6 +31,7 @@ void Board::displayBoard(string _result) {
         std::cout <<  std::endl;
     }
 }
+
 bool Board::inBounds(int row,int col){
 
     if((row <= 0 || row >= 4) || (col <= 0 || col >= 4)){
