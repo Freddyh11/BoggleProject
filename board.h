@@ -18,6 +18,7 @@ class Board : public Dice{
     void displayBoard(string _result);  
     string getRandomLetters();
     int getRandom();
+    bool inBounds(int row,int col);
 };
 
 #endif 
