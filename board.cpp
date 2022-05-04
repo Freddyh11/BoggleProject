@@ -32,13 +32,4 @@ void Board::displayBoard(string _result) {
     }
 }
 
-bool Board::inBounds(int row,int col){
-
-    if((row <= 0 || row >= 4) || (col <= 0 || col >= 4)){
-
-        return false;
-    }else{
-       return true;
-    }
-}
 
