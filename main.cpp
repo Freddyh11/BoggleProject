@@ -17,6 +17,12 @@ int main( void ) {
   int x = board1.getComputerScore();
   cout << "Computer score is: ";
   cout << x << endl;
+   if (board1.getComputerScore() > board1.getHumanScore()) {
+        cout << "Ha ha ha, I destroyed you. Better luck next time! \n";
+    } else {
+        cout << "WOW, you defeated me! Congratulations your Good!\n";
+    }
+  
   return 0;
 }
 
