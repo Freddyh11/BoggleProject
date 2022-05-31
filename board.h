@@ -50,33 +50,33 @@ class Board {
                 CUBE_NINE, CUBE_TEN, CUBE_ELEVEN, CUBE_TWELVE, CUBE_THIRTEEN,
                 CUBE_FOURTEEN, CUBE_FIFTEEN, CUBE_SIXTEEN};
  
-        Board();
-        Board(string& myfile, string _userInput);
-        Board(const Board& copy);
-        Board(Board&& move) noexcept;
-        Board& operator=(const Board& copy);
-        Board& operator=(Board&& move) noexcept;
+        Board();//default
+        Board(string& myfile, string _userInput);//parameterized
+        Board(const Board& copy);//copy con
+        Board(Board&& move) noexcept;//move con
+        Board& operator=(const Board& copy);//copy op
+        Board& operator=(Board&& move) noexcept;//move op
 
-        ~Board();
+        ~Board();//decon
 
-        void fillBoard();
-        void displayBoard();  
-        bool checkValidWord(string _word);
-        bool inBounds(int row,int col);
-        string getRandomLetters();
-        int getRandomIndex();
+        void fillBoard();//fill the board with char
+        void displayBoard();  //displays board
+        bool checkValidWord(string _word);//checks to see if word is vaild T or F
+        bool inBounds(int row,int col);//checks the bounds of row and col
+        string getRandomLetters();//getter
+        int getRandomIndex();//creates a random index in cube array
 
-        int getHumanScore();
-        void humanPlayersTurn();
+        int getHumanScore();//getter for human score
+        void humanPlayersTurn();//lets human play
 
-        int getComputerScore();
-        void solveBoard();
-        void searchForWord(int row, int col, string currPrefix);
+        int getComputerScore();//getter for comp score
+        void solveBoard();//solves the entire board
+        void searchForWord(int row, int col, string currPrefix);//searches for word in dict
 
-        int score(int word_length);
-        int score();
-        void printArrays();
-        void clearBuffer();
+        int score(int word_length);//gives point for word length
+        int score();//point system for word
+        void printArrays();//print array
+        void clearBuffer();//clears the buffer after menu choice 
 };
 
 #endif 
