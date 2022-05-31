@@ -1,15 +1,15 @@
 #include "dictionary.h"
 
-Dictionary::Dictionary()
+Dictionary::Dictionary()//default
 {
     root = new Node;
     root->flag = false;
     numWords = 0;
 }
 
-Dictionary::~Dictionary(){}
+Dictionary::~Dictionary(){}//decon
 
-void Dictionary::addWord(string word)
+void Dictionary::addWord(string word)//add word 
 {
     currNode = root;
     
@@ -31,7 +31,8 @@ void Dictionary::addWord(string word)
     currNode = NULL;
 }
 
-void Dictionary::deleteNodes(Node* node) {
+void Dictionary::deleteNodes(Node* node) //delete Node(s)
+{
     for(int i = 0; i < MAX; i++) {
         if (node->arr[i] != NULL) {
             deleteNodes(node->arr[i]);
@@ -43,7 +44,7 @@ void Dictionary::deleteNodes(Node* node) {
     //cout << counter << endl;
 }
 
-bool Dictionary::isWord(string word)
+bool Dictionary::isWord(string word)//checks to see if word correct
 {
     currNode = root;
     bool isWord = false;
@@ -64,7 +65,7 @@ bool Dictionary::isWord(string word)
     return isWord;
 }
 
-bool Dictionary::isPrefix(string word)
+bool Dictionary::isPrefix(string word)//checks see if string is a prefix of another
 {
     currNode = root;
     
@@ -82,7 +83,7 @@ bool Dictionary::isPrefix(string word)
     return true;
 }
 
-void Dictionary::PrintWords(string prefix)
+void Dictionary::PrintWords(string prefix)//prints the words in Node
 {
     currNode = root;
     
@@ -102,7 +103,7 @@ void Dictionary::PrintWords(string prefix)
     currNode = NULL;
 }
 
-void Dictionary::PrintHelper(Node* startNode, string prefix)
+void Dictionary::PrintHelper(Node* startNode, string prefix)//helps print words from node
 {
     if(startNode == NULL)
          
@@ -119,7 +120,7 @@ void Dictionary::PrintHelper(Node* startNode, string prefix)
     }
 }
 
-int Dictionary::wordCount()
+int Dictionary::wordCount()//getter to return the number of words 
 {
     return numWords;
 }
