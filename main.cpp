@@ -5,21 +5,21 @@
 
 #include "board.h"
   
-void displayMenu(int&);
-void processChoice(bool&, int);
-void clearBuffer(); 
-void userPlay(Board& _board);
-void compareScores(Board& _board);
-void regularPlay();
-void inputPlay();
-string grabInput();
-void displayWelcome();
+void displayMenu(int&);//function to display menu
+void processChoice(bool&, int);//function to pick choice 
+void clearBuffer(); //Clears buffer after menu choice so as not to interfere with the following user inputs.
+void userPlay(Board& _board);//function to play a user inputted play
+void compareScores(Board& _board);//function to compare the score between user and computer
+void regularPlay();//function to do a regular play
+void inputPlay();//gets input from user(string) 
+string grabInput();//function to get input from user
+void displayWelcome();//displays welcome screen
 
 int main( void ) {
   int menu_choice;
   bool flag = true;
 
-  displayWelcome();
+  displayWelcome();//display welcome menu
   cout << "Press enter to continue..." << endl;
   while ( getchar() != '\n');
   
@@ -33,7 +33,7 @@ int main( void ) {
 }
 
 
-void displayMenu(int& menu_choice) 
+void displayMenu(int& menu_choice) //display menu for choices 
 {
      //Displays the menu of functions for the user to choose from.
     menu_choice = 0;
@@ -54,7 +54,7 @@ void displayMenu(int& menu_choice)
 }
 
   
-void processChoice (bool& flag, int menu_choice)
+void processChoice (bool& flag, int menu_choice)//user enters choice, whether to continue or not/regular play or user play
 {
     //Takes in user input for menu choice and calls the appropriate function.
     string temp;
@@ -95,7 +95,8 @@ void clearBuffer() {
 	} while (c != '\n' && c != EOF);
 }
 
-string grabInput() {
+string grabInput() //takes in users word
+{
   string _input;
   cout << "Enter a word: ";
   cin >> _input;
@@ -103,7 +104,8 @@ string grabInput() {
   return _input;
 }
 
-void userPlay(Board& _board) {
+void userPlay(Board& _board) //user chooses random board
+{
   bool flag = true;
   string _input;
   string _continue;
@@ -127,7 +129,8 @@ void userPlay(Board& _board) {
   while ( getchar() != '\n');
 }
 
-void regularPlay() {
+void regularPlay() //board is given to user 
+{
   cout << "Lets play!" << endl;
   string myfile = "Dictionary.txt";
   Board _board;
@@ -138,7 +141,8 @@ void regularPlay() {
    _board.printArrays();
 }
 
-void inputPlay() {
+void inputPlay() //user enters letters for board
+{
   string _input;
   cout << "Enter the characters that you would like to use in a single entry." << endl;
   cout << "You will be entering characters from left to right and from top to bottom. " << endl;
@@ -156,7 +160,8 @@ void inputPlay() {
    _board.printArrays();
 }
 
-void compareScores(Board& _board) {
+void compareScores(Board& _board) //function compares the scores and outputs appropriate sayings
+{
   int h_score, c_score;
   h_score = _board.getHumanScore();
   c_score = _board.getComputerScore();
@@ -176,7 +181,8 @@ void compareScores(Board& _board) {
   while ( getchar() != '\n');
 }
 
-void displayWelcome() {
+void displayWelcome() //displays a welcome screen to user
+{
   cout << " ____________" << endl;
   cout << "|  ________  |" << endl;
   cout << "| | Boggle!| |" << endl;
