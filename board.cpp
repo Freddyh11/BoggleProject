@@ -153,7 +153,7 @@ void Board::solveBoard() {
     }
 }
 
-//
+//searches the word in dict
 void Board::searchForWord(int row, int col, string currPrefix)
 {
     if(row >= 4 || col >= 4)
@@ -189,7 +189,7 @@ void Board::searchForWord(int row, int col, string currPrefix)
 
     checkedArray[row][col] = false;
 }
-
+//prints the array of words
 void Board::printArrays(){
     cout << "***Your word list***" << endl;
     int total_hum = humanList.size();
@@ -209,7 +209,7 @@ void Board::printArrays(){
         cout << computerList[i] << endl;
     }
 }
-
+//getter for human score
 int Board::getHumanScore() {
     humanScore = 0;
     for (int i = 0; i < humanList.size(); i++) {
@@ -217,7 +217,7 @@ int Board::getHumanScore() {
     }
     return humanScore;
 }
-
+//getter for comp score
 int Board::getComputerScore() {
     computerScore = 0;
     for (int i = 0; i < computerList.size(); i++) {
@@ -225,7 +225,7 @@ int Board::getComputerScore() {
     }
     return computerScore;
 }
-
+//point system for words
 int Board::score(int word_length){
     if (word_length < 4) { return 0;}
     else if (word_length == 4) { return 1;}
@@ -254,9 +254,9 @@ bool Board::checkValidWord(string _word) {
     }
     return success;
 }
-
+ // clears buffer after menu choice so as not to interfere with the following user inputs.
 void Board::clearBuffer() {
-    // clears buffer after menu choice so as not to interfere with the following user inputs.
+   
 	char c;
 	do {
 		c = getchar();
